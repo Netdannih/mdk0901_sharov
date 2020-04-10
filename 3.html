@@ -32,6 +32,18 @@
             sum+=salaries[i];
         };
         console.log(sum);
+
+        function multiplyNumeric(obj){
+            for(let i in obj){
+                if(typeof obj[i] == "number"){
+                    obj[i]=obj[i]*2;
+                };
+            };
+        };
+        let menu={width:200,height:300,title:"My menu"}
+        console.log(menu);
+        multiplyNumeric(menu);
+        console.log(menu);
     </script>
 </body>
 </html>
