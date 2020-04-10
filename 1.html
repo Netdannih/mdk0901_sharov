@@ -13,6 +13,18 @@
         user.name="Pete";
         delete user.name;
         console.log(user);
+
+        function isEmpty(obj){
+            let prop = false;
+            for(let i in obj){
+                if (i) prop=true;
+            };
+            return prop;
+        };
+        let schedule={};
+        console.log(isEmpty(schedule));
+        schedule["8:30"]="get up";
+        console.log(isEmpty(schedule));
     </script>
 </body>
 </html>
