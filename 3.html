@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inp" id="lab">Угадай число от 1 до 100</label><br>
+    <input type="text" id="inp"><br>
+    <button id="sub">Проверить</button>
+    <button id="can">Отмена</button>    
+    <script>
+        let sub = document.querySelector('#sub');
+        let can = document.querySelector('#can');
+        let lab = document.querySelector('#lab');
+        let inp = document.querySelector('#inp');
+        let ranint=Math.floor(Math.random()*100);
+        can.addEventListener('click',function (){
+            ranint=Math.floor(Math.random()*100);
+            inp.value='';
+            lab.textContent='Угадай число от 1 до 100';
+        });
+        sub.addEventListener('click', function(){
+            if (Number(inp.value)!=NaN){
+                if (Number(inp.value)>ranint){
+                    lab.textContent='Загаданное число меньше';
+                }else{
+                    if(Number(inp.value)<ranint){
+                        lab.textContent='Загаданное число больше';
+                    }else{
+                        lab.textContent='Вы угадали!';
+                    }
+                }
+            }else{
+                lab.textContent='Введите число!'
+            }
+        });       
+    </script>      
+</body>
+</html>
