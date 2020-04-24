@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <button>Сменить цвет</button>
+    <script>
+        let inButton=document.querySelector('button');
+        function getRandomInt() {
+            return Math.floor(Math.random() * Math.floor(256));
+        };
+        inButton.addEventListener('click', function (){
+            let ra=getRandomInt();
+            let ga=getRandomInt();
+            let ba=getRandomInt();
+            let aa=Math.random();
+            document.body.style.background='rgba('+ra+','+ga+','+ba+','+aa+')';
+        });
+    </script>      
+</body>
+</html>
