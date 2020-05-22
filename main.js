@@ -1,29 +1,34 @@
 let todoControl = document.querySelector (".todo-control"),
 todoList = document.querySelector (".todo-list"),
 todoCompleted = document.querySelector (".todo-completed"),
-todoContainer = document.querySelector (".todo-container");
+todoContainer = document.querySelector (".todo-container"),
+obj = JSON.parse(localStorage.getItem("obj"));
 
-let obj = JSON.parse(localStorage.getItem("obj"));
-if (obj==null) obj=[];
 
 const render = () =>{
     todoList.textContent="";
     todoCompleted.textContent="";
+    let tempObj=[];
+    if (obj==null) obj=[];
+    obj.forEach((el)=>{
+        if (el!=null) tempObj.push(el);
+    });
+    obj=tempObj; 
+    console.log(obj)
     
-    if (obj!=null){
-        obj.forEach((el) =>{
-            const li = document.createElement("li");
-            li.classList.add("todo-item");
-            li.innerHTML = `<span class="text-todo">${el.value}</span>
-            <div class="todo-buttons">
-            <button class="todo-remove"></button>
-            <button class="todo-complete"></button>
-            </div>`;
-            if (el.completed) todoCompleted.append(li);
-            else todoList.append(li);
-        });
-        localStorage.obj=JSON.stringify(obj);
-    }
+    
+    obj.forEach((el) =>{
+        const li = document.createElement("li");
+        li.classList.add("todo-item");
+        li.innerHTML = `<span class="text-todo">${el.value}</span>
+        <div class="todo-buttons">
+        <button class="todo-remove"></button>
+        <button class="todo-complete"></button>
+        </div>`;
+        if (el.completed) todoCompleted.append(li);
+        else todoList.append(li);
+    });
+    localStorage.obj=JSON.stringify(obj);
 };
 render();
 
