@@ -4,13 +4,13 @@ todoCompleted = document.querySelector (".todo-completed"),
 todoContainer = document.querySelector (".todo-container");
 
 let obj = JSON.parse(localStorage.getItem("obj"));
-obj = obj==null?[]: obj;
+if (obj==null) obj=[];
 
 const render = () =>{
     todoList.textContent="";
     todoCompleted.textContent="";
     
-    if (obj){
+    if (obj!=null){
         obj.forEach((el) =>{
             const li = document.createElement("li");
             li.classList.add("todo-item");
