@@ -13,8 +13,7 @@ const render = () =>{
     obj.forEach((el)=>{
         if (el!=null) tempObj.push(el);
     });
-    obj=tempObj;
-    
+    obj=tempObj;     
     
     obj.forEach((el) =>{
         const li = document.createElement("li");
