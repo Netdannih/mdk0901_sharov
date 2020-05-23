@@ -2,7 +2,8 @@ let todoControl = document.querySelector (".todo-control"),
 todoList = document.querySelector (".todo-list"),
 todoCompleted = document.querySelector (".todo-completed"),
 todoContainer = document.querySelector (".todo-container"),
-obj = JSON.parse(localStorage.getItem("obj"));
+cooka=document.cookie.split("=");
+obj = JSON.parse(cooka[1]);
 
 
 const render = () =>{
@@ -26,7 +27,8 @@ const render = () =>{
         if (el.completed) todoCompleted.append(li);
         else todoList.append(li);
     });
-    localStorage.obj=JSON.stringify(obj);
+    document.cookie = "todo-list=" + JSON.stringify(obj);
+    console.log(document.cookie);
 };
 render();
 
