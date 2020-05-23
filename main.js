@@ -3,7 +3,7 @@ todoList = document.querySelector (".todo-list"),
 todoCompleted = document.querySelector (".todo-completed"),
 todoContainer = document.querySelector (".todo-container"),
 cooka=document.cookie.split("=");
-obj = JSON.parse(cooka[1]);
+obj = JSON.parse(cooka[1]?cooka[1]:"[]");
 
 
 const render = () =>{
